@@ -7338,6 +7338,13 @@ ngx-devkit-builders@^0.1.0:
     "@angular-devkit/architect" "^0.1602.0"
     "@angular-devkit/core" "^16.2.0"
 
+ngx-fixed-footer@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/ngx-fixed-footer/-/ngx-fixed-footer-1.2.0.tgz#d5cb5a156b88dec342bb277627a0b66790420c3f"
+  integrity sha512-cnA7Vh8Kbi2EnsSDLb3m3qZ9YOhoqD6GB4i8tybKB6pjvvR3TP+VGoOyyU7yyGvznYk/MVPT4p8Yk39lJYHdQQ==
+  dependencies:
+    tslib "^2.3.0"
+
 ngx-translate-version@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ngx-translate-version/-/ngx-translate-version-1.1.0.tgz#59c2ac65f125e614cc6fc9183f64264e16f20608"

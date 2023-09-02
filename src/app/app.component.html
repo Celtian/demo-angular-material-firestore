@@ -1,1 +1,20 @@
-<router-outlet></router-outlet>
+<header class="z-10 sticky-top">
+  <mat-toolbar color="primary" role="navigation">
+    <nav class="container flex items-center justify-between gap-2">
+      <a mat-button [routerLink]="['/' | localize]">Firestore Demo</a>
+      <button mat-button (click)="toggleLanguage()" class="uppercase">{{ lang }}</button>
+    </nav>
+  </mat-toolbar>
+</header>
+
+<main class="flex-1 permanent-main">
+  <router-outlet></router-outlet>
+</main>
+
+<footer ngxFixedFooter class="fixed bottom-0 w-full text-center">
+  <mat-toolbar color="primary">
+    <div class="container text-sm">
+      {{ 'footer.content' | translate: { endYear } }}
+    </div>
+  </mat-toolbar>
+</footer>

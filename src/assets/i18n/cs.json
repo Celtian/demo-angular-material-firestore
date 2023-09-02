@@ -1,1 +1,61 @@
-{}
+{
+  "ERROR": {
+    "unexpected-exception": "Neočekávaná chyba"
+  },
+  "ROUTES": {
+    "app": {
+      "homepage": "domovka-stranka",
+      "not-found": "nenalezeno"
+    }
+  },
+  "SEO": {
+    "app": {
+      "homepage": {
+        "description": "Domovská stránka",
+        "title": "Domovská stránka"
+      },
+      "not-found": {
+        "description": "Tato stránka nebyla nalezena",
+        "title": "Stránka nebyla nalezena"
+      }
+    }
+  },
+  "TITLES": {
+    "app": {
+      "homepage": "Domovská stránka",
+      "not-found": "Stránka nebyla nalezena"
+    }
+  },
+  "UNI": {
+    "no": "Ne",
+    "yes": "Ano"
+  },
+  "custom-confirm-dialog": {
+    "default": {
+      "content": "Opravdu chcete potvrdit operaci?",
+      "title": "Potvrzení operace"
+    },
+    "delete-post": {
+      "content": "Opravdu chcete smazat příspěvek?",
+      "title": "Mazání příspěvku"
+    },
+    "unsaved-work": {
+      "content": "Opravdu chcete opustit tuto stránku?",
+      "title": "Neuložená práce"
+    }
+  },
+  "footer": {
+    "content": "Všechna práva vyhrazena © {{ endYear }}"
+  },
+  "mat-paginator": {
+    "first-page": "První stránka",
+    "items-per-page": "Položek na stránku",
+    "last-page": "Poslední stránka",
+    "next-page": "Další stránka",
+    "of": "z",
+    "previous-page": "Předchozí stránka"
+  },
+  "not-found": {
+    "content": "Stránka nebyla nalezena"
+  }
+}
