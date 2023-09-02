@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NgxAppVersionDirective } from 'ngx-app-version';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,6 @@ import { RouterOutlet } from '@angular/router';
   imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  hostDirectives: [NgxAppVersionDirective],
 })
-export class AppComponent {
-  title = 'demo-angular-material-firestore';
-}
+export class AppComponent {}
