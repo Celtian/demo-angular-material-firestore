@@ -12,6 +12,7 @@ import { NgxFixedFooterModule } from 'ngx-fixed-footer';
 import { NgxTranslateVersionModule } from 'ngx-translate-version';
 import { VERSION } from 'src/environments/version';
 import { routes } from './app.routes';
+import { firebaseProviders } from './firebase.providers';
 import { CustomErrorHandlerService } from './shared/services/custom-error-handler.service';
 import { CustomTitleStrategyService } from './shared/services/custom-title-strategy.service';
 import { MatPaginationIntlService } from './shared/services/mat-paginator-intl.service';
@@ -44,5 +45,6 @@ export const appConfig: ApplicationConfig = {
       provide: MatPaginatorIntl,
       useClass: MatPaginationIntlService,
     },
+    firebaseProviders,
   ],
 };

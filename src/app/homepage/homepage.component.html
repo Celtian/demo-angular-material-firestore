@@ -1,1 +1,7 @@
 <p>homepage works!</p>
+
+<ul>
+  <li *ngFor="let item of item$ | async">
+    {{ item | json }}
+  </li>
+</ul>
