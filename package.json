@@ -40,7 +40,7 @@
     "@ngneat/tailwind": "7.0.3",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
-    "firebase": "^10.3.1",
+    "firebase": "^10.4.0",
     "ngx-app-version": "^0.1.0",
     "ngx-fixed-footer": "^1.2.0",
     "ngx-translate-version": "^1.1.0",
