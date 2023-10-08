@@ -10,7 +10,6 @@ import {
   signal,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Firestore } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -55,7 +54,6 @@ import { ApiService } from '../shared/services/api.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomepageComponent implements OnInit {
-  private firestore: Firestore = inject(Firestore);
   public readonly ROUTE_DEFINITION = ROUTE_DEFINITION;
   public readonly displayedColumns: string[] = ['id', 'title', 'body'];
   public readonly pageSizeOptions = [5, 10, 25, 100];
@@ -90,9 +88,9 @@ export class HomepageComponent implements OnInit {
             // TODO move to coerce utils
             Number.isNaN(Number(params?.['pageIndex'])) ? 1 : Number(params?.['pageIndex']),
             Number.isNaN(Number(params?.['pageSize'])) ? 5 : Number(params?.['pageSize']),
-            // params?.['sortBy'] as keyof PostDto | undefined,
-            // params?.['sortDirection'] as 'asc' | 'desc' | undefined,
-            // params?.['query'] as string,
+            params?.['sortBy'] as keyof Omit<PostDto, 'id'> | undefined,
+            params?.['sortDirection'] as 'asc' | 'desc' | undefined,
+            params?.['query'] as string,
           ),
         ),
         takeUntilDestroyed(this.destroyRef),
@@ -101,30 +99,6 @@ export class HomepageComponent implements OnInit {
         this.data.set(posts.items);
         this.totalCount.set(posts.totalCount);
       });
-
-    /*
-    const postsRef = collection(this.firestore, 'posts');
-    const queryRef = query(postsRef, orderBy('title', 'desc'), limit(5));
-
-    const count$ = from(getDocs(postsRef)).pipe(map((res) => res.size));
-    const items$ = from(getDocs(queryRef)).pipe(
-      map((res) => {
-        const arr: PostDto[] = [];
-        res.forEach((doc) => {
-          const data = doc.data() as Omit<PostDto, 'id'>;
-          arr.push({ id: doc.id, ...data });
-        });
-        return arr;
-      }),
-    );
-
-    combineLatest([count$, items$])
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(([count, items]) => {
-        this.totalCount.set(count);
-        this.data.set(items);
-      });
-      */
   }
 
   public onSortChange(event: Sort): void {

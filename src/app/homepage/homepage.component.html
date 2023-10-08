@@ -31,7 +31,7 @@
   [fixedLayout]="true"
   [dataSource]="data()"
   matSort
-  matSortActive="id"
+  matSortActive="title"
   matSortDirection="asc"
   matSortDisableClear
   multiTemplateDataRows
@@ -46,7 +46,7 @@
   </colgroup>
 
   <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ 'table.posts.id.title' | translate }}</th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'table.posts.id.title' | translate }}</th>
     <td mat-cell *matCellDef="let row">
       {{ '#' + row.id }}
     </td>
