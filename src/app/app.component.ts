@@ -1,11 +1,10 @@
 import { Portal } from '@angular/cdk/portal';
-import { CommonModule } from '@angular/common';
 import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxAppVersionDirective } from 'ngx-app-version';
@@ -18,9 +17,8 @@ import { LanguageService } from './shared/services/language.service';
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule,
-    CommonModule,
-    RouterModule,
+    RouterOutlet,
+    RouterLink,
     MatIconModule,
     MatButtonModule,
     TranslateModule,
@@ -28,7 +26,7 @@ import { LanguageService } from './shared/services/language.service';
     LocalizeRouterModule,
   ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss',
   hostDirectives: [NgxAppVersionDirective],
 })
 export class AppComponent implements OnInit {

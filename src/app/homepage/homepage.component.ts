@@ -1,5 +1,4 @@
 import { PortalModule } from '@angular/cdk/portal';
-import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -20,7 +19,7 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatSortModule, Sort } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
 import { TranslateModule } from '@ngx-translate/core';
 import { debounceTime, first, map, switchMap } from 'rxjs';
@@ -32,7 +31,6 @@ import { ApiService } from '../shared/services/api.service';
   selector: 'app-homepage',
   standalone: true,
   imports: [
-    CommonModule,
     FormsModule,
     LocalizeRouterModule,
     MatButtonModule,
@@ -45,12 +43,11 @@ import { ApiService } from '../shared/services/api.service';
     MatTableModule,
     MatTooltipModule,
     // PostListDetailComponent,
-    RouterModule,
     TranslateModule,
     PortalModule,
   ],
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss'],
+  styleUrl: './homepage.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomepageComponent implements OnInit {
