@@ -1,6 +1,37 @@
 {
+  "BREADCRUMBS": {
+    "app": {
+      "posts": "Příspěvky"
+    }
+  },
+  "custom-confirm-dialog": {
+    "default": {
+      "content": "Opravdu chcete potvrdit operaci?",
+      "title": "Potvrzení operace"
+    },
+    "delete-post": {
+      "content": "Opravdu chcete smazat příspěvek?",
+      "title": "Mazání příspěvku"
+    },
+    "unsaved-work": {
+      "content": "Opravdu chcete opustit tuto stránku?",
+      "title": "Neuložená práce"
+    }
+  },
   "ERROR": {
     "unexpected-exception": "Neočekávaná chyba"
+  },
+  "footer": {
+    "content": "Všechna práva vyhrazena © {{ endYear }}"
+  },
+  "input": {
+    "search": {
+      "label": "Vyhledávání",
+      "placeholder": "Začněte zde psát…"
+    }
+  },
+  "not-found": {
+    "content": "Stránka nebyla nalezena"
   },
   "ROUTES": {
     "app": {
@@ -20,6 +51,19 @@
       }
     }
   },
+  "table": {
+    "posts": {
+      "body": {
+        "title": "Obsah"
+      },
+      "id": {
+        "title": "ID"
+      },
+      "title": {
+        "title": "Název"
+      }
+    }
+  },
   "TITLES": {
     "app": {
       "homepage": "Domovská stránka",
@@ -27,35 +71,10 @@
     }
   },
   "UNI": {
+    "clear": "Vymazat",
+    "clear-filters": "Vymazat filtry",
+    "create": "Vytvořit",
     "no": "Ne",
     "yes": "Ano"
-  },
-  "custom-confirm-dialog": {
-    "default": {
-      "content": "Opravdu chcete potvrdit operaci?",
-      "title": "Potvrzení operace"
-    },
-    "delete-post": {
-      "content": "Opravdu chcete smazat příspěvek?",
-      "title": "Mazání příspěvku"
-    },
-    "unsaved-work": {
-      "content": "Opravdu chcete opustit tuto stránku?",
-      "title": "Neuložená práce"
-    }
-  },
-  "footer": {
-    "content": "Všechna práva vyhrazena © {{ endYear }}"
-  },
-  "mat-paginator": {
-    "first-page": "První stránka",
-    "items-per-page": "Položek na stránku",
-    "last-page": "Poslední stránka",
-    "next-page": "Další stránka",
-    "of": "z",
-    "previous-page": "Předchozí stránka"
-  },
-  "not-found": {
-    "content": "Stránka nebyla nalezena"
   }
 }
