@@ -1,5 +1,5 @@
 {
-  "BREADCRUMBS": {
+  "breadcrumbs": {
     "app": {
       "posts": "Posts"
     }
@@ -18,7 +18,7 @@
       "title": "Unsaved work"
     }
   },
-  "ERROR": {
+  "error": {
     "unexpected-exception": "Unexpected error"
   },
   "footer": {
@@ -33,13 +33,13 @@
   "not-found": {
     "content": "Page was not found"
   },
-  "ROUTES": {
+  "routes": {
     "app": {
       "homepage": "homepage",
       "not-found": "not-found"
     }
   },
-  "SEO": {
+  "seo": {
     "app": {
       "homepage": {
         "description": "Homepage",
@@ -64,13 +64,13 @@
       }
     }
   },
-  "TITLES": {
+  "titles": {
     "app": {
       "homepage": "Homepage",
       "not-found": "Page was not found"
     }
   },
-  "UNI": {
+  "uni": {
     "clear": "Clear",
     "clear-filters": "Clear filter",
     "create": "Create",

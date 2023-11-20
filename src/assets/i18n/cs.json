@@ -1,5 +1,5 @@
 {
-  "BREADCRUMBS": {
+  "breadcrumbs": {
     "app": {
       "posts": "Příspěvky"
     }
@@ -18,7 +18,7 @@
       "title": "Neuložená práce"
     }
   },
-  "ERROR": {
+  "error": {
     "unexpected-exception": "Neočekávaná chyba"
   },
   "footer": {
@@ -33,13 +33,13 @@
   "not-found": {
     "content": "Stránka nebyla nalezena"
   },
-  "ROUTES": {
+  "routes": {
     "app": {
       "homepage": "domovka-stranka",
       "not-found": "nenalezeno"
     }
   },
-  "SEO": {
+  "seo": {
     "app": {
       "homepage": {
         "description": "Domovská stránka",
@@ -64,13 +64,13 @@
       }
     }
   },
-  "TITLES": {
+  "titles": {
     "app": {
       "homepage": "Domovská stránka",
       "not-found": "Stránka nebyla nalezena"
     }
   },
-  "UNI": {
+  "uni": {
     "clear": "Vymazat",
     "clear-filters": "Vymazat filtry",
     "create": "Vytvořit",

@@ -19,7 +19,7 @@ export class CustomTitleStrategyService extends TitleStrategy {
   public updateTitle(snapshot: RouterStateSnapshot): void {
     const title = this.buildTitle(snapshot);
     if (title) {
-      this.translateService.get(`TITLES.${title}`).subscribe((translatedTitle) => {
+      this.translateService.get(`titles.${title}`).subscribe((translatedTitle) => {
         this.title.setTitle(`${translatedTitle} - ${this.siteName}`);
       });
     } else {

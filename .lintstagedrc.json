@@ -4,6 +4,7 @@
     "eslint --fix"
   ],
   "**/*.{css,scss}": [
-    "prettier --write"
+    "prettier --write",
+    "stylelint --fix"
   ]
 }

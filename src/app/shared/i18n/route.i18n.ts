@@ -8,19 +8,19 @@ export const ROUTES_I18N: RouteDefinitionDto<{
 }> = {
   APP: {
     HOMEPAGE: {
-      route: _('ROUTES.app.homepage'),
-      title: _('TITLES.app.homepage'),
+      route: _('routes.app.homepage'),
+      title: _('titles.app.homepage'),
       seo: {
-        title: _('SEO.app.homepage.title'),
-        description: _('SEO.app.homepage.description'),
+        title: _('seo.app.homepage.title'),
+        description: _('seo.app.homepage.description'),
       },
     },
     NOT_FOUND: {
-      route: _('ROUTES.app.not-found'),
-      title: _('TITLES.app.not-found'),
+      route: _('routes.app.not-found'),
+      title: _('titles.app.not-found'),
       seo: {
-        title: _('SEO.app.not-found.title'),
-        description: _('SEO.app.not-found.description'),
+        title: _('seo.app.not-found.title'),
+        description: _('seo.app.not-found.description'),
       },
     },
   },
