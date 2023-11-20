@@ -40,5 +40,11 @@ testem.log
 
 # System files
 .DS_Store
-version.ts
 Thumbs.db
+
+# Temporary files
+version.ts
+*.log
+.firebase
+.nx
+
