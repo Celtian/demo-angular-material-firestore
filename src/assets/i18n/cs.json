@@ -1,9 +1,4 @@
 {
-  "breadcrumbs": {
-    "app": {
-      "posts": "Příspěvky"
-    }
-  },
   "custom-confirm-dialog": {
     "default": {
       "content": "Opravdu chcete potvrdit operaci?",
@@ -29,6 +24,14 @@
       "label": "Vyhledávání",
       "placeholder": "Začněte zde psát…"
     }
+  },
+  "mat-paginator": {
+    "first-page": "První stránka",
+    "items-per-page": "Položek na stránku",
+    "last-page": "Poslední stránka",
+    "next-page": "Další stránka",
+    "of": "z",
+    "previous-page": "Předchozí stránka"
   },
   "not-found": {
     "content": "Stránka nebyla nalezena"
@@ -73,7 +76,6 @@
   "uni": {
     "clear": "Vymazat",
     "clear-filters": "Vymazat filtry",
-    "create": "Vytvořit",
     "no": "Ne",
     "yes": "Ano"
   }
