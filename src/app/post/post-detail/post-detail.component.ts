@@ -18,7 +18,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { LocalizeRouterModule, LocalizeRouterService } from '@gilsdav/ngx-translate-router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { delay, filter, first, map, switchMap, tap } from 'rxjs';
+import { filter, first, map, switchMap, tap } from 'rxjs';
 import { DataSource } from 'src/app/shared/classes/data-source';
 import { DEFAULT_POST } from 'src/app/shared/constants/post.constant';
 import { ROUTE_DEFINITION } from 'src/app/shared/constants/route-definition.constant';
@@ -104,7 +104,6 @@ export class PostDetailComponent implements OnInit, OnDestroy {
 
     idFromRoute
       .pipe(
-        delay(500),
         switchMap((id) => this.apiService.detail(id as string)),
         takeUntilDestroyed(this.destroyRef),
       )

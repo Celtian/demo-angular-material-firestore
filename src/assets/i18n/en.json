@@ -4,7 +4,8 @@
       "posts": "Posts"
     },
     "posts": {
-      "create": "Create"
+      "create": "Create",
+      "edit": "Edit"
     }
   },
   "custom-confirm-dialog": {
@@ -64,6 +65,10 @@
     "delete": {
       "failed": "Deletion failed",
       "success": "Successfully deleted"
+    },
+    "update": {
+      "failed": "Update failed",
+      "success": "Succesfully updated"
     }
   },
   "routes": {

@@ -11,6 +11,7 @@ import {
   limit,
   orderBy,
   query,
+  updateDoc,
   where,
 } from '@angular/fire/firestore';
 import { deleteDoc } from 'firebase/firestore';
@@ -87,5 +88,10 @@ export class ApiService {
   public delete(id: string): Observable<void> {
     const ref = doc(this.firestore, `posts/${id}`);
     return from(deleteDoc(ref)).pipe(map(() => undefined));
+  }
+
+  public patch(id: string, body: Partial<PostDto>): Observable<PostDto> {
+    const ref = doc(this.firestore, `posts/${id}`);
+    return from(updateDoc(ref, { ...body })).pipe(switchMap(() => this.detail(id)));
   }
 }
