@@ -56,13 +56,57 @@
     <td mat-cell *matCellDef="let row" class="font-bold">{{ row.title }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="body">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ 'table.posts.body.title' | translate }}</th>
-    <td mat-cell *matCellDef="let row">{{ row.body }}</td>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>&nbsp;</th>
+    <td mat-cell *matCellDef="let row">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <a mat-menu-item [routerLink]="['/' | localize, row.id]">
+          <mat-icon>info</mat-icon>
+          <span>{{ 'uni.detail' | translate }}</span>
+        </a>
+        <a mat-menu-item [routerLink]="['/' + row.id + '/' + ROUTE_DEFINITION.POSTS.EDIT | localize]">
+          <mat-icon>edit</mat-icon>
+          <span>{{ 'uni.edit' | translate }}</span>
+        </a>
+        <button mat-menu-item (click)="onDelete(row)">
+          <mat-icon>delete</mat-icon>
+          <span>{{ 'uni.delete' | translate }}</span>
+        </button>
+      </mat-menu>
+    </td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  <ng-container matColumnDef="expand">
+    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button aria-label="expand row" (click)="onExpand($event, element)">
+        @if (expandedElement === element) {
+          <mat-icon>keyboard_arrow_up</mat-icon>
+        } @else {
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        }
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumnsExpanded.length">
+      <div [@detailExpand]="element === expandedElement ? 'expanded' : 'collapsed'">
+        @if (expandedElement === element) {
+          <div [class.py-4]="element === expandedElement">
+            {{ element.body }}
+          </div>
+        }
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumnsExpanded"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumnsExpanded"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="expandable-row"></tr>
 </table>
 
 <mat-paginator

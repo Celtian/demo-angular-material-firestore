@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CdkPortal, PortalModule } from '@angular/cdk/portal';
 import {
   ChangeDetectionStrategy,
@@ -18,17 +19,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSortModule, Sort } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
-import { TranslateModule } from '@ngx-translate/core';
-import { debounceTime, first, map, switchMap } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { debounceTime, filter, first, map, switchMap } from 'rxjs';
 import { ROUTE_DEFINITION } from 'src/app/shared/constants/route-definition.constant';
 import { PostDto } from 'src/app/shared/dto/post.dto';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { BreadcrumbsPortalService } from 'src/app/shared/services/breadcrumbs-portal.service';
+import { CustomConfirmDialog, CustomConfirmDialogService } from 'src/app/shared/services/custom-confirm-dialog.service';
 
 @Component({
   selector: 'app-post-list',
@@ -52,16 +55,25 @@ import { BreadcrumbsPortalService } from 'src/app/shared/services/breadcrumbs-po
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class PostListComponent implements OnInit, OnDestroy {
   @ViewChild(CdkPortal, { static: true }) public portalContent!: CdkPortal;
 
   public readonly ROUTE_DEFINITION = ROUTE_DEFINITION;
-  public readonly displayedColumns: string[] = ['id', 'title', 'body'];
+  public readonly displayedColumns: string[] = ['id', 'title', 'actions'];
+  public readonly displayedColumnsExpanded = [...this.displayedColumns, 'expand'];
   public readonly pageSizeOptions = [5, 10, 25, 100];
   public data = signal<PostDto[]>([]);
   public totalCount = signal(0);
   public query = '';
+  public expandedElement: PostDto | null = null;
   private destroyRef = inject(DestroyRef);
 
   constructor(
@@ -70,6 +82,9 @@ export class PostListComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private cdr: ChangeDetectorRef,
     private breadcrumbsPortalService: BreadcrumbsPortalService,
+    private confirm: CustomConfirmDialogService,
+    private snackBar: MatSnackBar,
+    private translate: TranslateService,
   ) {}
 
   public ngOnDestroy(): void {
@@ -175,7 +190,32 @@ export class PostListComponent implements OnInit, OnDestroy {
     });
   }
 
+  public onExpand(event: Event, element: PostDto): void {
+    this.expandedElement = this.expandedElement === element ? null : element;
+    this.cdr.markForCheck();
+    event.stopPropagation();
+  }
+
   public trackByPostId(index: number, target: PostDto): string {
     return target.id;
+  }
+
+  public onDelete(row: PostDto): void {
+    this.confirm
+      .openCustomConfirmDialog(CustomConfirmDialog.Delete)
+      .pipe(
+        first(),
+        filter((res) => !!res),
+        switchMap(() => this.apiService.delete(row.id)),
+      )
+      .subscribe({
+        next: () => {
+          this.data.update((value) => value.filter((i) => i.id !== row.id));
+          this.snackBar.open(this.translate.instant('response.delete.success'), this.translate.instant('uni.close'));
+        },
+        error: () => {
+          this.snackBar.open(this.translate.instant('response.delete.failed'), this.translate.instant('uni.close'));
+        },
+      });
   }
 }

@@ -4,6 +4,8 @@ import {
   QueryConstraint,
   addDoc,
   collection,
+  doc,
+  docData,
   getDoc,
   getDocs,
   limit,
@@ -11,6 +13,7 @@ import {
   query,
   where,
 } from '@angular/fire/firestore';
+import { deleteDoc } from 'firebase/firestore';
 import { Observable, combineLatest, from, map, switchMap } from 'rxjs';
 import { Pagination } from '../dto/pagination.dto';
 import { PostDto, PostInputDto } from '../dto/post.dto';
@@ -74,5 +77,15 @@ export class ApiService {
         return { id: doc.id, ...data };
       }),
     );
+  }
+
+  public detail(id: string): Observable<PostDto> {
+    const ref = doc(this.firestore, `posts/${id}`);
+    return docData(ref).pipe(map((res) => ({ id, ...res }) as PostDto));
+  }
+
+  public delete(id: string): Observable<void> {
+    const ref = doc(this.firestore, `posts/${id}`);
+    return from(deleteDoc(ref)).pipe(map(() => undefined));
   }
 }
