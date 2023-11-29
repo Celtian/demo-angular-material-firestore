@@ -1,8 +1,19 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, QueryConstraint, collection, getDocs, limit, orderBy, query, where } from '@angular/fire/firestore';
-import { Observable, combineLatest, from, map } from 'rxjs';
+import {
+  Firestore,
+  QueryConstraint,
+  addDoc,
+  collection,
+  getDoc,
+  getDocs,
+  limit,
+  orderBy,
+  query,
+  where,
+} from '@angular/fire/firestore';
+import { Observable, combineLatest, from, map, switchMap } from 'rxjs';
 import { Pagination } from '../dto/pagination.dto';
-import { PostDto } from '../dto/post.dto';
+import { PostDto, PostInputDto } from '../dto/post.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -47,6 +58,20 @@ export class ApiService {
           items,
           totalCount,
         };
+      }),
+    );
+  }
+
+  public create(post: PostInputDto): Observable<PostDto> {
+    return from(
+      addDoc(collection(this.firestore, 'posts'), {
+        ...post,
+      }),
+    ).pipe(
+      switchMap((doc) => from(getDoc(doc))),
+      map((doc) => {
+        const data = doc.data() as Omit<PostDto, 'id'>;
+        return { id: doc.id, ...data };
       }),
     );
   }

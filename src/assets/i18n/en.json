@@ -2,6 +2,9 @@
   "breadcrumbs": {
     "app": {
       "posts": "Posts"
+    },
+    "posts": {
+      "create": "Create"
     }
   },
   "custom-confirm-dialog": {
@@ -24,6 +27,17 @@
   "footer": {
     "content": "All rights reserved © {{ endYear }}"
   },
+  "form": {
+    "post": {
+      "body": {
+        "label": "Body",
+        "placeholder": "Type something here…"
+      },
+      "title": {
+        "label": "Title"
+      }
+    }
+  },
   "input": {
     "search": {
       "label": "Search",
@@ -40,6 +54,12 @@
   },
   "not-found": {
     "content": "Page was not found"
+  },
+  "response": {
+    "create": {
+      "failed": "Creation failed",
+      "success": "Successfully created"
+    }
   },
   "routes": {
     "app": {
@@ -105,8 +125,11 @@
   "uni": {
     "clear": "Clear",
     "clear-filters": "Clear filter",
+    "close": "Close",
     "create": "Create",
     "no": "No",
+    "reset": "Reset",
+    "submit": "Submit",
     "yes": "Yes"
   }
 }

@@ -2,6 +2,9 @@
   "breadcrumbs": {
     "app": {
       "posts": "Příspěvky"
+    },
+    "posts": {
+      "create": "Vytvořit"
     }
   },
   "custom-confirm-dialog": {
@@ -24,6 +27,17 @@
   "footer": {
     "content": "Všechna práva vyhrazena © {{ endYear }}"
   },
+  "form": {
+    "post": {
+      "body": {
+        "label": "Obsah",
+        "placeholder": "Napiště něco zde…"
+      },
+      "title": {
+        "label": "Název"
+      }
+    }
+  },
   "input": {
     "search": {
       "label": "Vyhledávání",
@@ -40,6 +54,12 @@
   },
   "not-found": {
     "content": "Stránka nebyla nalezena"
+  },
+  "response": {
+    "create": {
+      "failed": "Vytváření se nezdařilo",
+      "success": "Úspěšně vytvořeno"
+    }
   },
   "routes": {
     "app": {
@@ -105,8 +125,11 @@
   "uni": {
     "clear": "Vymazat",
     "clear-filters": "Vymazat filtry",
+    "close": "Zavřít",
     "create": "Vytvořit",
     "no": "Ne",
+    "reset": "Resetovat",
+    "submit": "Potvrdit",
     "yes": "Ano"
   }
 }
