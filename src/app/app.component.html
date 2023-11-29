@@ -8,6 +8,9 @@
 </header>
 
 <main class="flex-1 permanent-main">
+  @if (breadcrumbsPortal$ | async; as portal) {
+    <ng-template [cdkPortalOutlet]="portal"></ng-template>
+  }
   <router-outlet></router-outlet>
 </main>
 
