@@ -1,6 +1,8 @@
 interface APP<T> {
   POSTS: T;
   NOT_FOUND: T;
+  LOGIN: T;
+  REGISTER: T;
 }
 
 interface POSTS<T> {

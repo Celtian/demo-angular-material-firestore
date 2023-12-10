@@ -4,6 +4,8 @@ export const ROUTE_DEFINITION: RouteDefinitionDto<string> = {
   APP: {
     POSTS: 'app.posts',
     NOT_FOUND: 'app.not-found',
+    LOGIN: 'app.login',
+    REGISTER: 'app.register',
   },
   POSTS: {
     DETAIL: 'posts.detail',

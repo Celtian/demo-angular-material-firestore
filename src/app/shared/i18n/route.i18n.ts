@@ -23,6 +23,22 @@ export const ROUTES_I18N: RouteDefinitionDto<{
         description: _('seo.app.not-found.description'),
       },
     },
+    REGISTER: {
+      route: _('routes.app.register'),
+      title: _('titles.app.register'),
+      seo: {
+        title: _('seo.app.register.title'),
+        description: _('seo.app.register.description'),
+      },
+    },
+    LOGIN: {
+      route: _('routes.app.login'),
+      title: _('titles.app.login'),
+      seo: {
+        title: _('seo.app.login.title'),
+        description: _('seo.app.login.description'),
+      },
+    },
   },
   POSTS: {
     DETAIL: {

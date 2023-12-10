@@ -73,8 +73,10 @@
   },
   "routes": {
     "app": {
+      "login": "prihlaseni",
       "not-found": "nenalezeno",
-      "posts": "prispevky"
+      "posts": "prispevky",
+      "register": "registrace"
     },
     "posts": {
       "create": "vytvorit",
@@ -84,6 +86,10 @@
   },
   "seo": {
     "app": {
+      "login": {
+        "description": "Přihlášení do applikace",
+        "title": "Přihlásit se"
+      },
       "not-found": {
         "description": "Tato stránka nebyla nalezena",
         "title": "Stránka nebyla nalezena"
@@ -91,6 +97,10 @@
       "posts": {
         "description": "Seznam příspěvků",
         "title": "Seznam příspěvků"
+      },
+      "register": {
+        "description": "Registrace do applikace",
+        "title": "Registrace"
       }
     },
     "posts": {
@@ -120,8 +130,10 @@
   },
   "titles": {
     "app": {
+      "login": "Přihlášení",
       "not-found": "Stránka nebyla nalezena",
-      "posts": "Seznam příspěvků"
+      "posts": "Seznam příspěvků",
+      "register": "Registrace"
     },
     "posts": {
       "create": "Vytvořit příspěvek",

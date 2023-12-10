@@ -73,8 +73,10 @@
   },
   "routes": {
     "app": {
+      "login": "login",
       "not-found": "not-found",
-      "posts": "posts"
+      "posts": "posts",
+      "register": "register"
     },
     "posts": {
       "create": "create",
@@ -84,6 +86,10 @@
   },
   "seo": {
     "app": {
+      "login": {
+        "description": "Login into application",
+        "title": "Login"
+      },
       "not-found": {
         "description": "This website does not exist",
         "title": "Page was not found"
@@ -91,6 +97,10 @@
       "posts": {
         "description": "List of posts",
         "title": "List of posts"
+      },
+      "register": {
+        "description": "Register into application",
+        "title": "Register"
       }
     },
     "posts": {
@@ -120,8 +130,10 @@
   },
   "titles": {
     "app": {
+      "login": "Login",
       "not-found": "Page was not found",
-      "posts": "List of posts"
+      "posts": "List of posts",
+      "register": "Register"
     },
     "posts": {
       "create": "Create post",

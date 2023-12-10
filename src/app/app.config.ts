@@ -1,6 +1,7 @@
 import { registerLocaleData } from '@angular/common';
 import localeCs from '@angular/common/locales/cs';
 import { ApplicationConfig, ErrorHandler, importProvidersFrom } from '@angular/core';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
@@ -37,6 +38,7 @@ export const appConfig: ApplicationConfig = {
       NgxAppVersionModule.forRoot({
         version: VERSION.version,
       }),
+      AngularFireAuthModule,
     ),
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { verticalPosition: 'top', horizontalPosition: 'right' } },
     { provide: ErrorHandler, useClass: CustomErrorHandlerService },
@@ -45,6 +47,13 @@ export const appConfig: ApplicationConfig = {
       provide: MatPaginatorIntl,
       useClass: MatPaginationIntlService,
     },
+    /*
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+    */
     firebaseProviders,
   ],
 };
