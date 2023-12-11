@@ -2,9 +2,15 @@
   <mat-toolbar role="navigation">
     <nav class="container flex items-center justify-between gap-2">
       <a mat-button [routerLink]="['/' | localize]">Firestore Demo</a>
-      <!--
-      <button mat-button (click)="toggleLanguage()" class="uppercase">{{ lang }}</button>
-      -->
+      <div class="flex gap-2">
+        <a mat-button [routerLink]="['/' + ROUTE_DEFINITION.APP.LOGIN | localize]">{{ 'uni.login' | translate }}</a>
+        <a mat-button [routerLink]="['/' + ROUTE_DEFINITION.APP.REGISTER | localize]">{{
+          'uni.register' | translate
+        }}</a>
+        <button mat-button (click)="language.toggleLanguage()" class="uppercase">
+          {{ language.language() }}
+        </button>
+      </div>
     </nav>
   </mat-toolbar>
 </header>

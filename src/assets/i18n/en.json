@@ -149,7 +149,12 @@
     "delete": "Delete",
     "detail": "Detail",
     "edit": "Edit",
+    "email": "Email",
+    "login": "Login",
+    "logout": "Logout",
     "no": "No",
+    "password": "Password",
+    "register": "Register",
     "reset": "Reset",
     "submit": "Submit",
     "yes": "Yes"

@@ -149,7 +149,12 @@
     "delete": "Smazat",
     "detail": "Detail",
     "edit": "Upravit",
+    "email": "Email",
+    "login": "Přihlásit se",
+    "logout": "Odhlásit se",
     "no": "Ne",
+    "password": "Heslo",
+    "register": "Registrovat se",
     "reset": "Resetovat",
     "submit": "Potvrdit",
     "yes": "Ano"

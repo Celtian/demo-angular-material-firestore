@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { LocalizeRouterService } from '@gilsdav/ngx-translate-router';
+import { TranslateModule } from '@ngx-translate/core';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { from } from 'rxjs';
 import { ROUTE_DEFINITION } from '../shared/constants/route-definition.constant';
@@ -13,7 +14,7 @@ import { ROUTE_DEFINITION } from '../shared/constants/route-definition.constant'
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, ReactiveFormsModule, MatInputModule],
+  imports: [MatCardModule, MatButtonModule, ReactiveFormsModule, MatInputModule, TranslateModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

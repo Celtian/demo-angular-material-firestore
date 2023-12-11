@@ -11,7 +11,6 @@ import { LocalizeRouterModule, LocalizeRouterService } from '@gilsdav/ngx-transl
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxFixedFooterModule } from 'ngx-fixed-footer';
 import { Observable, from } from 'rxjs';
-import { DEFAULT_LANGUAGE } from 'src/app/shared/constants/language.constant';
 import { ROUTE_DEFINITION } from 'src/app/shared/constants/route-definition.constant';
 import { BreadcrumbsPortalService } from 'src/app/shared/services/breadcrumbs-portal.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
@@ -37,14 +36,13 @@ import { VERSION } from 'src/environments/version';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutPrivateComponent implements OnInit {
-  private destroyRef = inject(DestroyRef);
   public endYear = new Date(VERSION.date).getFullYear();
   public breadcrumbsPortal$!: Observable<Portal<unknown>>;
-  public lang = DEFAULT_LANGUAGE;
+  private destroyRef = inject(DestroyRef);
 
   constructor(
     private breadcrumbsPortalService: BreadcrumbsPortalService,
-    private language: LanguageService,
+    public language: LanguageService,
     private auth: Auth,
     private router: Router,
     private lr: LocalizeRouterService,
@@ -56,18 +54,14 @@ export class LayoutPrivateComponent implements OnInit {
     queueMicrotask(() => {
       this.breadcrumbsPortal$ = this.breadcrumbsPortalService.portal$;
     });
-    this.language.language$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((language) => (this.lang = language));
-  }
-
-  public toggleLanguage(): void {
-    this.language.setLang(this.lang === 'en' ? 'cs' : 'en');
   }
 
   public logout(): void {
-    from(signOut(this.auth)).subscribe((res) => {
-      console.log(res);
-      const translatedRoute = this.lr.translateRoute(`/${ROUTE_DEFINITION.APP.LOGIN}`);
-      this.router.navigate([translatedRoute]);
-    });
+    from(signOut(this.auth))
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => {
+        const translatedRoute = this.lr.translateRoute(`/${ROUTE_DEFINITION.APP.LOGIN}`);
+        this.router.navigate([translatedRoute]);
+      });
   }
 }
