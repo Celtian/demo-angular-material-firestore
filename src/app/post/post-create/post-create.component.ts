@@ -53,6 +53,7 @@ import { SeoService } from 'src/app/shared/services/seo.service';
 })
 export class PostCreateComponent implements OnInit, OnDestroy, CanComponentDeactivate {
   private destroyRef = inject(DestroyRef);
+  public readonly ROUTE_DEFINITION = ROUTE_DEFINITION;
 
   @ViewChild(CdkPortal, { static: true }) public portalContent!: CdkPortal;
 
