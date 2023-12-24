@@ -7,7 +7,7 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TitleStrategy, provideRouter } from '@angular/router';
+import { TitleStrategy, provideRouter, withViewTransitions } from '@angular/router';
 import { NgxAppVersionModule } from 'ngx-app-version';
 import { NgxFixedFooterModule } from 'ngx-fixed-footer';
 import { NgxTranslateVersionModule } from 'ngx-translate-version';
@@ -22,7 +22,7 @@ registerLocaleData(localeCs, 'cs-CS');
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    provideRouter(routes, withViewTransitions()),
     importProvidersFrom(
       BrowserModule,
       BrowserAnimationsModule,

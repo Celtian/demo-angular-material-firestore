@@ -63,11 +63,14 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <a mat-menu-item [routerLink]="['/' | localize, row.id]">
+        <a mat-menu-item [routerLink]="['/' + ROUTE_DEFINITION.APP.POSTS | localize, row.id]">
           <mat-icon>info</mat-icon>
           <span>{{ 'uni.detail' | translate }}</span>
         </a>
-        <a mat-menu-item [routerLink]="['/' + row.id + '/' + ROUTE_DEFINITION.POSTS.EDIT | localize]">
+        <a
+          mat-menu-item
+          [routerLink]="['/' + ROUTE_DEFINITION.APP.POSTS | localize, row.id, ROUTE_DEFINITION.POSTS.EDIT | localize]"
+        >
           <mat-icon>edit</mat-icon>
           <span>{{ 'uni.edit' | translate }}</span>
         </a>
