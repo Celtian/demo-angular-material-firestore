@@ -1,0 +1,163 @@
+{
+  "breadcrumbs": {
+    "app": {
+      "posts": "Příspěvky"
+    },
+    "posts": {
+      "create": "Vytvořit",
+      "edit": "Upravit"
+    }
+  },
+  "custom-confirm-dialog": {
+    "default": {
+      "content": "Opravdu chcete potvrdit operaci?",
+      "title": "Potvrzení operace"
+    },
+    "delete-post": {
+      "content": "Opravdu chcete smazat příspěvek?",
+      "title": "Mazání příspěvku"
+    },
+    "unsaved-work": {
+      "content": "Opravdu chcete opustit tuto stránku?",
+      "title": "Neuložená práce"
+    }
+  },
+  "error": {
+    "post-was-not-found": "Příspěvek nebyl nalezen",
+    "unexpected-exception": "Neočekávaná chyba"
+  },
+  "footer": {
+    "content": "Všechna práva vyhrazena © {{ endYear }}"
+  },
+  "form": {
+    "post": {
+      "body": {
+        "label": "Obsah",
+        "placeholder": "Napiště něco zde…"
+      },
+      "title": {
+        "label": "Název"
+      }
+    }
+  },
+  "input": {
+    "search": {
+      "label": "Vyhledávání",
+      "placeholder": "Začněte zde psát…"
+    }
+  },
+  "mat-paginator": {
+    "first-page": "První stránka",
+    "items-per-page": "Položek na stránku",
+    "last-page": "Poslední stránka",
+    "next-page": "Další stránka",
+    "of": "z",
+    "previous-page": "Předchozí stránka"
+  },
+  "not-found": {
+    "content": "Stránka nebyla nalezena"
+  },
+  "response": {
+    "create": {
+      "failed": "Vytváření se nezdařilo",
+      "success": "Úspěšně vytvořeno"
+    },
+    "delete": {
+      "failed": "Mazání se nezdařilo",
+      "success": "Úspěšně smazáno"
+    },
+    "update": {
+      "failed": "Ukládání se nezdařilo",
+      "success": "Úspěšně uloženo"
+    }
+  },
+  "routes": {
+    "app": {
+      "login": "prihlaseni",
+      "not-found": "nenalezeno",
+      "posts": "prispevky",
+      "register": "registrace"
+    },
+    "posts": {
+      "create": "vytvorit",
+      "detail": "detail",
+      "edit": "upravit"
+    }
+  },
+  "seo": {
+    "app": {
+      "login": {
+        "description": "Přihlášení do applikace",
+        "title": "Přihlásit se"
+      },
+      "not-found": {
+        "description": "Tato stránka nebyla nalezena",
+        "title": "Stránka nebyla nalezena"
+      },
+      "posts": {
+        "description": "Seznam příspěvků",
+        "title": "Seznam příspěvků"
+      },
+      "register": {
+        "description": "Registrace do applikace",
+        "title": "Registrace"
+      }
+    },
+    "posts": {
+      "create": {
+        "description": "Vytvořit příspěvek",
+        "title": "Vytvořit příspěvek"
+      },
+      "detail": {
+        "description": "Detail příspěvku",
+        "title": "Detail příspěvku"
+      },
+      "edit": {
+        "description": "Upravit příspěvek",
+        "title": "Upravit příspěvek"
+      }
+    }
+  },
+  "table": {
+    "posts": {
+      "id": {
+        "title": "ID"
+      },
+      "title": {
+        "title": "Název"
+      }
+    }
+  },
+  "titles": {
+    "action": {
+      "create": "vytvořit",
+      "detail": "detail",
+      "edit": "upravit",
+      "list": "seznam"
+    },
+    "section": {
+      "login": "přihlášení",
+      "not-found": "nenalezeno",
+      "posts": "příspěvky",
+      "register": "registrace"
+    }
+  },
+  "uni": {
+    "clear": "Vymazat",
+    "clear-filters": "Vymazat filtry",
+    "close": "Zavřít",
+    "create": "Vytvořit",
+    "delete": "Smazat",
+    "detail": "Detail",
+    "edit": "Upravit",
+    "email": "Email",
+    "login": "Přihlásit se",
+    "logout": "Odhlásit se",
+    "no": "Ne",
+    "password": "Heslo",
+    "register": "Registrovat se",
+    "reset": "Resetovat",
+    "submit": "Potvrdit",
+    "yes": "Ano"
+  }
+}
