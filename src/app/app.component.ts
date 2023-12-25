@@ -8,6 +8,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxAppVersionDirective } from 'ngx-app-version';
+import { SeoDirective } from './shared/directives/seo.directive';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,6 @@ import { NgxAppVersionDirective } from 'ngx-app-version';
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  hostDirectives: [NgxAppVersionDirective],
+  hostDirectives: [NgxAppVersionDirective, SeoDirective],
 })
 export class AppComponent {}

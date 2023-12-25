@@ -39,8 +39,7 @@ export class RegisterComponent {
 
     from(
       createUserWithEmailAndPassword(this.auth, this.form.controls.email.value, this.form.controls.password.value),
-    ).subscribe((res) => {
-      console.log(res);
+    ).subscribe(() => {
       const translatedRoute = this.lr.translateRoute(`/${ROUTE_DEFINITION.APP.POSTS}`);
       this.router.navigate([translatedRoute]);
     });

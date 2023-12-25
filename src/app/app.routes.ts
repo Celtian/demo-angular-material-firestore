@@ -2,6 +2,7 @@ import { redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-g
 import { Route, Routes } from '@angular/router';
 import { postRoutes } from './post';
 import { ROUTE_DEFINITION } from './shared/constants/route-definition.constant';
+import { titleResolverFactory } from './shared/factories/title.factory';
 import { CustomAuthGuard } from './shared/guards/custom-auth-guard.service';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(`/${ROUTE_DEFINITION.APP.LOGIN}`);
@@ -9,7 +10,10 @@ const redirectAuthorizedToPosts = () => redirectLoggedInTo(`/${ROUTE_DEFINITION.
 
 const notFound: Route = {
   path: '**',
-  title: ROUTE_DEFINITION.APP.NOT_FOUND,
+  title: titleResolverFactory({
+    description: ROUTE_DEFINITION.APP.NOT_FOUND,
+    section: ['not-found'],
+  }),
   loadComponent: () => import('./not-found/not-found.component').then((m) => m.NotFoundComponent),
 };
 
@@ -29,12 +33,18 @@ export const routes: Routes = [
     children: [
       {
         path: ROUTE_DEFINITION.APP.LOGIN,
-        title: ROUTE_DEFINITION.APP.LOGIN,
+        title: titleResolverFactory({
+          description: ROUTE_DEFINITION.APP.LOGIN,
+          section: ['login'],
+        }),
         loadComponent: () => import('./login').then((m) => m.LoginComponent),
       },
       {
         path: ROUTE_DEFINITION.APP.REGISTER,
-        title: ROUTE_DEFINITION.APP.REGISTER,
+        title: titleResolverFactory({
+          description: ROUTE_DEFINITION.APP.REGISTER,
+          section: ['register'],
+        }),
         loadComponent: () => import('./register').then((m) => m.RegisterComponent),
       },
       {

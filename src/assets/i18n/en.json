@@ -129,16 +129,17 @@
     }
   },
   "titles": {
-    "app": {
-      "login": "Login",
-      "not-found": "Page was not found",
-      "posts": "List of posts",
-      "register": "Register"
+    "action": {
+      "create": "Create",
+      "detail": "Detail",
+      "edit": "Edit",
+      "list": "List"
     },
-    "posts": {
-      "create": "Create post",
-      "detail": "Post detail",
-      "edit": "Edit post"
+    "section": {
+      "login": "Login",
+      "not-found": "Not found",
+      "posts": "Posts",
+      "register": "Register"
     }
   },
   "uni": {

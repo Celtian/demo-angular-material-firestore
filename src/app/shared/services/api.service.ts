@@ -19,27 +19,30 @@ import { Observable, combineLatest, from, map, switchMap } from 'rxjs';
 import { Pagination } from '../dto/pagination.dto';
 import { PostDto, PostInputDto } from '../dto/post.dto';
 
+interface PostListInput {
+  page: number;
+  limit: number;
+  sort: keyof PostDto;
+  order: 'asc' | 'desc';
+  query: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
   private firestore: Firestore = inject(Firestore);
 
-  public list(
-    pageIndex = 1,
-    pageSize = 5,
-    sort: keyof Omit<PostDto, 'id'> = 'title',
-    order: 'asc' | 'desc' = 'asc',
-    q = '',
-  ): Observable<Pagination<PostDto>> {
-    console.log(pageIndex, q);
-
+  public list(input: PostListInput): Observable<Pagination<PostDto>> {
     const postsRef = collection(this.firestore, 'posts');
 
-    const queryConstrains: QueryConstraint[] = [orderBy(sort, order), limit(pageSize)];
+    const queryConstrains: QueryConstraint[] = [orderBy(input.sort, input.order), limit(input.limit)];
 
-    if (q) {
-      queryConstrains.push(where(sort, '>=', q.toLowerCase()), where(sort, '<=', q.toLowerCase() + '\uf8ff'));
+    if (input.query) {
+      queryConstrains.push(
+        where(input.sort, '>=', input.query.toLowerCase()),
+        where(input.sort, '<=', input.query.toLowerCase() + '\uf8ff'),
+      );
     }
 
     const queryRef = query(postsRef, ...queryConstrains);
