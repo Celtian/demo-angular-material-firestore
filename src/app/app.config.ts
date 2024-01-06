@@ -8,9 +8,9 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/mater
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TitleStrategy, provideRouter, withViewTransitions } from '@angular/router';
-import { NgxAppVersionModule } from 'ngx-app-version';
-import { NgxFixedFooterModule } from 'ngx-fixed-footer';
-import { NgxTranslateVersionModule } from 'ngx-translate-version';
+import { provideAppVersion } from 'ngx-app-version';
+import { provideFixedFooter } from 'ngx-fixed-footer';
+import { provideTranslateVersion } from 'ngx-translate-version';
 import { VERSION } from 'src/environments/version';
 import { routes } from './app.routes';
 import { firebaseProviders } from './firebase.providers';
@@ -23,21 +23,21 @@ registerLocaleData(localeCs, 'cs-CS');
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, withViewTransitions()),
+    provideAppVersion({
+      version: VERSION.version,
+    }),
+    provideTranslateVersion(routes, {
+      version: VERSION.version,
+    }),
+    provideFixedFooter({
+      containerSelector: '.permanent-main',
+      cssAttribute: 'margin',
+    }),
     importProvidersFrom(
       BrowserModule,
       BrowserAnimationsModule,
       MatSnackBarModule,
       MatDialogModule,
-      NgxTranslateVersionModule.forRoot(routes, {
-        version: VERSION.version,
-      }),
-      NgxFixedFooterModule.forRoot({
-        containerSelector: '.permanent-footer',
-        cssAttribute: 'margin',
-      }),
-      NgxAppVersionModule.forRoot({
-        version: VERSION.version,
-      }),
       AngularFireAuthModule,
     ),
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { verticalPosition: 'top', horizontalPosition: 'right' } },

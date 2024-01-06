@@ -4,7 +4,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
 import { TranslateModule } from '@ngx-translate/core';
-import { NgxFixedFooterModule } from 'ngx-fixed-footer';
+import { NgxFixedFooterDirective } from 'ngx-fixed-footer';
 import { ROUTE_DEFINITION } from 'src/app/shared/constants/route-definition.constant';
 import { LanguageService } from 'src/app/shared/services/language.service';
 import { VERSION } from 'src/environments/version';
@@ -19,7 +19,7 @@ import { VERSION } from 'src/environments/version';
     LocalizeRouterModule,
     MatButtonModule,
     TranslateModule,
-    NgxFixedFooterModule,
+    NgxFixedFooterDirective,
   ],
   templateUrl: './layout-public.component.html',
   styleUrl: './layout-public.component.scss',

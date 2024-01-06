@@ -9,7 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { LocalizeRouterModule, LocalizeRouterService } from '@gilsdav/ngx-translate-router';
 import { TranslateModule } from '@ngx-translate/core';
-import { NgxFixedFooterModule } from 'ngx-fixed-footer';
+import { NgxFixedFooterDirective } from 'ngx-fixed-footer';
 import { Observable, from } from 'rxjs';
 import { ROUTE_DEFINITION } from 'src/app/shared/constants/route-definition.constant';
 import { BreadcrumbsPortalService } from 'src/app/shared/services/breadcrumbs-portal.service';
@@ -29,7 +29,7 @@ import { VERSION } from 'src/environments/version';
     RouterLink,
     RouterOutlet,
     TranslateModule,
-    NgxFixedFooterModule,
+    NgxFixedFooterDirective,
   ],
   templateUrl: './layout-private.component.html',
   styleUrl: './layout-private.component.scss',
