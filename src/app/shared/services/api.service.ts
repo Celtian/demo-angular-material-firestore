@@ -5,7 +5,6 @@ import {
   addDoc,
   collection,
   doc,
-  docData,
   getDoc,
   getDocs,
   limit,
@@ -84,17 +83,17 @@ export class ApiService {
   }
 
   public detail(id: string): Observable<PostDto> {
-    const ref = doc(this.firestore, `posts/${id}`);
-    return docData(ref).pipe(map((res) => ({ id, ...res }) as PostDto));
+    const ref = doc(this.firestore, 'posts', id);
+    return from(getDoc(ref)).pipe(map((doc) => ({ id, ...doc.data() }) as PostDto));
   }
 
   public delete(id: string): Observable<void> {
-    const ref = doc(this.firestore, `posts/${id}`);
+    const ref = doc(this.firestore, 'posts', id);
     return from(deleteDoc(ref)).pipe(map(() => undefined));
   }
 
   public patch(id: string, body: Partial<PostDto>): Observable<PostDto> {
-    const ref = doc(this.firestore, `posts/${id}`);
+    const ref = doc(this.firestore, 'posts', id);
     return from(updateDoc(ref, { ...body })).pipe(switchMap(() => this.detail(id)));
   }
 }
