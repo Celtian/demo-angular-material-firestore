@@ -22,7 +22,7 @@ jobs:
       - name: 🗜️ Setup node version
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 22
 
       - name: 🛠️ Cache node modules
         id: cache

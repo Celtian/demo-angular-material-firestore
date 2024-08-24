@@ -87,7 +87,7 @@
     "typescript": "^5.5.4"
   },
   "engines": {
-    "node": ">=20 <24",
+    "node": ">=22 <24",
     "npm": "please-use-yarn"
   }
 }
