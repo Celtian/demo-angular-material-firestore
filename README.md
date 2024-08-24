@@ -10,7 +10,7 @@
 
 ## Instalation
 
-Definitelly works with Node `v20.9.0` & yarn `1.22.21`
+Definitelly works with Node `v22.2.0` & yarn `1.22.21`
 
 ```
 yarn install
@@ -38,7 +38,7 @@ only via Github Pipelines
 
 ## License
 
-Copyright &copy; 2023 [Dominik Hladik](https://github.com/Celtian)
+Copyright &copy; 2023 - 2024 [Dominik Hladik](https://github.com/Celtian)
 
 All contents are licensed under the [MIT license].
 
