@@ -11,7 +11,6 @@ import { VERSION } from 'src/environments/version';
 
 @Component({
   selector: 'app-layout-public',
-  standalone: true,
   imports: [
     RouterOutlet,
     MatToolbarModule,

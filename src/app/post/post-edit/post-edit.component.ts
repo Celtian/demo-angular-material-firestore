@@ -36,7 +36,6 @@ import { CustomConfirmDialog, CustomConfirmDialogService } from 'src/app/shared/
 
 @Component({
   selector: 'app-post-edit',
-  standalone: true,
   imports: [
     CommonModule,
     LocalizeRouterModule,

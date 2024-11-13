@@ -18,7 +18,6 @@ import { VERSION } from 'src/environments/version';
 
 @Component({
   selector: 'app-layout-private',
-  standalone: true,
   imports: [
     AsyncPipe,
     LocalizeRouterModule,

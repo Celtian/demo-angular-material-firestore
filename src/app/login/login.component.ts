@@ -12,7 +12,6 @@ import { ROUTE_DEFINITION } from '../shared/constants/route-definition.constant'
 
 @Component({
   selector: 'app-login',
-  standalone: true,
   imports: [MatCardModule, MatButtonModule, ReactiveFormsModule, MatInputModule, TranslateModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',

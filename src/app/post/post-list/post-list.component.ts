@@ -38,7 +38,6 @@ import { BreadcrumbsPortalService } from 'src/app/shared/services/breadcrumbs-po
 
 @Component({
   selector: 'app-post-list',
-  standalone: true,
   imports: [
     FormsModule,
     LocalizeRouterModule,

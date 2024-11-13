@@ -11,7 +11,6 @@ import { Router, RouterLink } from '@angular/router';
 import { LocalizeRouterModule, LocalizeRouterService } from '@gilsdav/ngx-translate-router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Observable, first } from 'rxjs';
-import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { ROUTE_DEFINITION } from 'src/app/shared/constants/route-definition.constant';
 import { PostInputDto } from 'src/app/shared/dto/post.dto';
 import { CanComponentDeactivate } from 'src/app/shared/guards/can-deactivate-guard.service';
@@ -21,7 +20,6 @@ import { CustomConfirmDialog, CustomConfirmDialogService } from 'src/app/shared/
 
 @Component({
   selector: 'app-post-create',
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     MatCardModule,
@@ -31,7 +29,6 @@ import { CustomConfirmDialog, CustomConfirmDialogService } from 'src/app/shared/
     MatTooltipModule,
     PortalModule,
     TranslateModule,
-    ConfirmDialogComponent,
     RouterLink,
     LocalizeRouterModule,
   ],

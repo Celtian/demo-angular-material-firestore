@@ -13,7 +13,6 @@ import { ROUTE_DEFINITION } from '../shared/constants/route-definition.constant'
 
 @Component({
   selector: 'app-register',
-  standalone: true,
   imports: [MatCardModule, MatButtonModule, ReactiveFormsModule, MatInputModule, TranslateModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',

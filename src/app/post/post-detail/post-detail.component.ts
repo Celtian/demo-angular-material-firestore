@@ -29,7 +29,6 @@ import { BreadcrumbsPortalService } from 'src/app/shared/services/breadcrumbs-po
 
 @Component({
   selector: 'app-post-detail',
-  standalone: true,
   imports: [
     CommonModule,
     RouterLink,
