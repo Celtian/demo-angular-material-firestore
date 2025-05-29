@@ -1,5 +1,5 @@
 import { CdkPortal, PortalModule } from '@angular/cdk/portal';
-import { CommonModule } from '@angular/common';
+
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -37,7 +37,6 @@ import { CustomConfirmDialog, CustomConfirmDialogService } from 'src/app/shared/
 @Component({
   selector: 'app-post-edit',
   imports: [
-    CommonModule,
     LocalizeRouterModule,
     MatButtonModule,
     MatCardModule,

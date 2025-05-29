@@ -1,5 +1,4 @@
-import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable, signal } from '@angular/core';
+import { Inject, Injectable, signal, DOCUMENT } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { Meta } from '@angular/platform-browser';
 import { LocalizeRouterService } from '@gilsdav/ngx-translate-router';

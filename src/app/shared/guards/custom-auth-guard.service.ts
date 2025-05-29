@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Auth } from '@angular/fire/auth';
+import { Auth, user } from '@angular/fire/auth';
 import { AuthPipeGenerator, loggedIn } from '@angular/fire/auth-guard';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { LocalizeRouterService } from '@gilsdav/ngx-translate-router';
-import { user } from 'rxfire/auth';
 import { Observable, map, take } from 'rxjs';
 
 /**
