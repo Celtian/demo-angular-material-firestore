@@ -1,4 +1,4 @@
-import { Inject, Injectable, signal, DOCUMENT } from '@angular/core';
+import { Injectable, signal, DOCUMENT, inject } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { Meta } from '@angular/platform-browser';
 import { LocalizeRouterService } from '@gilsdav/ngx-translate-router';
@@ -10,15 +10,13 @@ import { Language } from '../dto/language.dto';
   providedIn: 'root',
 })
 export class LanguageService {
+  private doc = inject<Document>(DOCUMENT);
+  private lr = inject(LocalizeRouterService);
+  private translate = inject(TranslateService);
+  private meta = inject(Meta);
+
   public language = signal<Language>(DEFAULT_LANGUAGE);
   public language$ = toObservable(this.language);
-
-  constructor(
-    @Inject(DOCUMENT) private doc: Document,
-    private lr: LocalizeRouterService,
-    private translate: TranslateService,
-    private meta: Meta,
-  ) {}
 
   public initLang(): void {
     this.setLang(this.translate.currentLang as Language);

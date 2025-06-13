@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,17 +19,15 @@ import { ROUTE_DEFINITION } from '../shared/constants/route-definition.constant'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterComponent {
+  private fb = inject(FormBuilder);
+  private auth = inject(Auth);
+  private router = inject(Router);
+  private lr = inject(LocalizeRouterService);
+
   public form = this.fb.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
   });
-
-  constructor(
-    private fb: FormBuilder,
-    private auth: Auth,
-    private router: Router,
-    private lr: LocalizeRouterService,
-  ) {}
 
   public onSubmit(): void {
     if (this.form.invalid) {

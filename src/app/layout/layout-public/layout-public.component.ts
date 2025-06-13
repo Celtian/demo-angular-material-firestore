@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterOutlet } from '@angular/router';
@@ -25,8 +25,8 @@ import { VERSION } from 'src/environments/version';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutPublicComponent {
+  language = inject(LanguageService);
+
   public endYear = new Date(VERSION.date).getFullYear();
   public readonly ROUTE_DEFINITION = ROUTE_DEFINITION;
-
-  constructor(public language: LanguageService) {}
 }

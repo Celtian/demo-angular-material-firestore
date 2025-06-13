@@ -7,8 +7,8 @@ import {
   DestroyRef,
   OnDestroy,
   OnInit,
-  ViewChild,
   inject,
+  viewChild,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -55,7 +55,18 @@ import { CustomConfirmDialog, CustomConfirmDialogService } from 'src/app/shared/
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostEditComponent implements OnInit, OnDestroy, CanComponentDeactivate {
-  @ViewChild(CdkPortal, { static: true }) public portalContent!: CdkPortal;
+  private breadcrumbsPortalService = inject(BreadcrumbsPortalService);
+  private cdr = inject(ChangeDetectorRef);
+  private confirm = inject(CustomConfirmDialogService);
+  private fb = inject(FormBuilder);
+  private route = inject(ActivatedRoute);
+  private apiService = inject(ApiService);
+  private translate = inject(TranslateService);
+  private lr = inject(LocalizeRouterService);
+  private snackBar = inject(MatSnackBar);
+  private router = inject(Router);
+
+  public readonly portalContent = viewChild.required(CdkPortal);
 
   private destroyRef = inject(DestroyRef);
 
@@ -67,30 +78,17 @@ export class PostEditComponent implements OnInit, OnDestroy, CanComponentDeactiv
     body: ['', [Validators.required, Validators.min(3)]],
   });
 
-  constructor(
-    private breadcrumbsPortalService: BreadcrumbsPortalService,
-    private cdr: ChangeDetectorRef,
-    private confirm: CustomConfirmDialogService,
-    private fb: FormBuilder,
-    private route: ActivatedRoute,
-    private apiService: ApiService,
-    private translate: TranslateService,
-    private lr: LocalizeRouterService,
-    private snackBar: MatSnackBar,
-    private router: Router,
-  ) {}
-
   public canDeactivate(): boolean | Observable<boolean> {
     return this.form.pristine || this.confirm.openCustomConfirmDialog(CustomConfirmDialog.UnsavedWork);
   }
 
   public ngOnDestroy(): void {
-    this.portalContent?.detach();
+    this.portalContent()?.detach();
   }
 
   public ngOnInit(): void {
     setTimeout(() => {
-      this.breadcrumbsPortalService.setPortal(this.portalContent);
+      this.breadcrumbsPortalService.setPortal(this.portalContent());
       this.cdr.markForCheck();
     });
 

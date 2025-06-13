@@ -35,17 +35,17 @@ import { VERSION } from 'src/environments/version';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutPrivateComponent implements OnInit {
+  private breadcrumbsPortalService = inject(BreadcrumbsPortalService);
+  language = inject(LanguageService);
+  private auth = inject(Auth);
+  private router = inject(Router);
+  private lr = inject(LocalizeRouterService);
+
   public endYear = new Date(VERSION.date).getFullYear();
   public breadcrumbsPortal$!: Observable<Portal<unknown>>;
   private destroyRef = inject(DestroyRef);
 
-  constructor(
-    private breadcrumbsPortalService: BreadcrumbsPortalService,
-    public language: LanguageService,
-    private auth: Auth,
-    private router: Router,
-    private lr: LocalizeRouterService,
-  ) {
+  constructor() {
     this.language.initLang();
   }
 

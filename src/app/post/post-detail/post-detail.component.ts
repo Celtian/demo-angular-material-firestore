@@ -7,8 +7,8 @@ import {
   DestroyRef,
   OnDestroy,
   OnInit,
-  ViewChild,
   inject,
+  viewChild,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
@@ -45,30 +45,28 @@ import { BreadcrumbsPortalService } from 'src/app/shared/services/breadcrumbs-po
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostDetailComponent implements OnInit, OnDestroy {
+  private route = inject(ActivatedRoute);
+  private apiService = inject(ApiService);
+  private breadcrumbsPortalService = inject(BreadcrumbsPortalService);
+  private cdr = inject(ChangeDetectorRef);
+  private translate = inject(TranslateService);
+  private router = inject(Router);
+  private lr = inject(LocalizeRouterService);
+
   private destroyRef = inject(DestroyRef);
 
-  @ViewChild(CdkPortal, { static: true }) public portalContent!: CdkPortal;
+  public readonly portalContent = viewChild.required(CdkPortal);
 
   public dataSource = new DataSource<PostDto>(DEFAULT_POST);
   public readonly ROUTE_DEFINITION = ROUTE_DEFINITION;
 
-  constructor(
-    private route: ActivatedRoute,
-    private apiService: ApiService,
-    private breadcrumbsPortalService: BreadcrumbsPortalService,
-    private cdr: ChangeDetectorRef,
-    private translate: TranslateService,
-    private router: Router,
-    private lr: LocalizeRouterService,
-  ) {}
-
   public ngOnDestroy(): void {
-    this.portalContent?.detach();
+    this.portalContent()?.detach();
   }
 
   public ngOnInit(): void {
     setTimeout(() => {
-      this.breadcrumbsPortalService.setPortal(this.portalContent);
+      this.breadcrumbsPortalService.setPortal(this.portalContent());
       this.cdr.markForCheck();
     });
 

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,17 +18,15 @@ import { ROUTE_DEFINITION } from '../shared/constants/route-definition.constant'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
+  private fb = inject(FormBuilder);
+  private router = inject(Router);
+  private lr = inject(LocalizeRouterService);
+  private auth = inject(Auth);
+
   public form = this.fb.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
   });
-
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private lr: LocalizeRouterService,
-    private auth: Auth,
-  ) {}
 
   public onSubmit(): void {
     if (this.form.invalid) {

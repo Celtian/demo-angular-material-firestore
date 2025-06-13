@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Auth, user } from '@angular/fire/auth';
 import { AuthPipeGenerator, loggedIn } from '@angular/fire/auth-guard';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
@@ -12,11 +12,9 @@ import { Observable, map, take } from 'rxjs';
   providedIn: 'root',
 })
 export class CustomAuthGuard {
-  constructor(
-    private router: Router,
-    private lr: LocalizeRouterService,
-    private auth: Auth,
-  ) {}
+  private router = inject(Router);
+  private lr = inject(LocalizeRouterService);
+  private auth = inject(Auth);
 
   public canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> {
     const authPipeFactory = (next.data['authGuardPipe'] as AuthPipeGenerator) || (() => loggedIn);

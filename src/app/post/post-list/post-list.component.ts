@@ -7,10 +7,10 @@ import {
   DestroyRef,
   OnDestroy,
   OnInit,
-  ViewChild,
   effect,
   inject,
   signal,
+  viewChild,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
@@ -67,7 +67,13 @@ import { BreadcrumbsPortalService } from 'src/app/shared/services/breadcrumbs-po
   ],
 })
 export class PostListComponent implements OnInit, OnDestroy {
-  @ViewChild(CdkPortal, { static: true }) public portalContent!: CdkPortal;
+  private apiService = inject(ApiService);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+  private cdr = inject(ChangeDetectorRef);
+  private breadcrumbsPortalService = inject(BreadcrumbsPortalService);
+
+  public readonly portalContent = viewChild.required(CdkPortal);
 
   public readonly ROUTE_DEFINITION = ROUTE_DEFINITION;
   public readonly displayedColumns: string[] = ['id', 'title', 'actions'];
@@ -85,13 +91,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   public expandedElement: PostDto | null = null;
   private destroyRef = inject(DestroyRef);
 
-  constructor(
-    private apiService: ApiService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private cdr: ChangeDetectorRef,
-    private breadcrumbsPortalService: BreadcrumbsPortalService,
-  ) {
+  constructor() {
     effect(() => {
       this.apiService
         .list({
@@ -110,12 +110,12 @@ export class PostListComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.portalContent?.detach();
+    this.portalContent()?.detach();
   }
 
   public ngOnInit(): void {
     setTimeout(() => {
-      this.breadcrumbsPortalService.setPortal(this.portalContent);
+      this.breadcrumbsPortalService.setPortal(this.portalContent());
       this.cdr.detectChanges();
     });
 
