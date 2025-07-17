@@ -1,1 +1,0 @@
-import{Y as a,f as e}from"./chunk-BW4BDWQV.js";var n=(()=>{let t=class t{constructor(){this.activePortal=new e,this.portal$=this.activePortal.asObservable()}setPortal(r){this.activePortal.next(r)}};t.\u0275fac=function(i){return new(i||t)},t.\u0275prov=a({token:t,factory:t.\u0275fac,providedIn:"root"});let o=t;return o})();export{n as a};
