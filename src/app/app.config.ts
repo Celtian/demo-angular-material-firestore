@@ -1,6 +1,6 @@
 import { registerLocaleData } from '@angular/common';
 import localeCs from '@angular/common/locales/cs';
-import { ApplicationConfig, ErrorHandler, importProvidersFrom } from '@angular/core';
+import { ApplicationConfig, ErrorHandler, importProvidersFrom, provideZonelessChangeDetection } from '@angular/core';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorIntl } from '@angular/material/paginator';
@@ -22,6 +22,7 @@ registerLocaleData(localeCs, 'cs-CS');
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideZonelessChangeDetection(),
     provideRouter(routes, withViewTransitions()),
     provideAppVersion({
       version: VERSION.version,
