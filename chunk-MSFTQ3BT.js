@@ -1,1 +1,0 @@
-import{_ as o,f as e}from"./chunk-HDFNOJJK.js";var s=(()=>{class t{constructor(){this.activePortal=new e,this.portal$=this.activePortal.asObservable()}setPortal(r){this.activePortal.next(r)}static{this.\u0275fac=function(a){return new(a||t)}}static{this.\u0275prov=o({token:t,factory:t.\u0275fac,providedIn:"root"})}}return t})();export{s as a};
