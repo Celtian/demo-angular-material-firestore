@@ -14,7 +14,7 @@ import { Observable, from } from 'rxjs';
 import { ROUTE_DEFINITION } from 'src/app/shared/constants/route-definition.constant';
 import { BreadcrumbsPortalService } from 'src/app/shared/services/breadcrumbs-portal.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
-import { VERSION } from 'src/environments/version';
+import { VERSION_INFO } from 'src/app/version';
 
 @Component({
   selector: 'app-layout-private',
@@ -41,7 +41,7 @@ export class LayoutPrivateComponent implements OnInit {
   private router = inject(Router);
   private lr = inject(LocalizeRouterService);
 
-  public endYear = new Date(VERSION.date).getFullYear();
+  public endYear = new Date(VERSION_INFO.date).getFullYear();
   public breadcrumbsPortal$!: Observable<Portal<unknown>>;
   private destroyRef = inject(DestroyRef);
 

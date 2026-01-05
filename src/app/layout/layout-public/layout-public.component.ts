@@ -7,7 +7,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgxFixedFooterDirective } from 'ngx-fixed-footer';
 import { ROUTE_DEFINITION } from 'src/app/shared/constants/route-definition.constant';
 import { LanguageService } from 'src/app/shared/services/language.service';
-import { VERSION } from 'src/environments/version';
+import { VERSION_INFO } from 'src/app/version';
 
 @Component({
   selector: 'app-layout-public',
@@ -27,6 +27,6 @@ import { VERSION } from 'src/environments/version';
 export class LayoutPublicComponent {
   language = inject(LanguageService);
 
-  public endYear = new Date(VERSION.date).getFullYear();
+  public endYear = new Date(VERSION_INFO.date).getFullYear();
   public readonly ROUTE_DEFINITION = ROUTE_DEFINITION;
 }
