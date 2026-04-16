@@ -68,7 +68,7 @@
     },
     "update": {
       "failed": "Update failed",
-      "success": "Succesfully updated"
+      "success": "Successfully updated"
     }
   },
   "routes": {
@@ -87,7 +87,7 @@
   "seo": {
     "app": {
       "login": {
-        "description": "Login into application",
+        "description": "Log in to application",
         "title": "Login"
       },
       "not-found": {
@@ -99,7 +99,7 @@
         "title": "List of posts"
       },
       "register": {
-        "description": "Register into application",
+        "description": "Register to application",
         "title": "Register"
       }
     },
@@ -149,7 +149,7 @@
       "expand-row": "expand row",
       "row-actions": "row actions",
       "select-page-of-posts": "Select page of posts",
-      "show-actions": "Zobrazit akce",
+      "show-actions": "Show actions",
       "warning-icon": "Warning icon"
     },
     "clear": "Clear",
