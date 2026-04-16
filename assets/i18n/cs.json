@@ -33,7 +33,7 @@
     "post": {
       "body": {
         "label": "Obsah",
-        "placeholder": "Napiště něco zde…"
+        "placeholder": "Napište něco zde…"
       },
       "title": {
         "label": "Název"
@@ -87,7 +87,7 @@
   "seo": {
     "app": {
       "login": {
-        "description": "Přihlášení do applikace",
+        "description": "Přihlášení do aplikace",
         "title": "Přihlásit se"
       },
       "not-found": {
@@ -99,7 +99,7 @@
         "title": "Seznam příspěvků"
       },
       "register": {
-        "description": "Registrace do applikace",
+        "description": "Registrace do aplikace",
         "title": "Registrace"
       }
     },
@@ -149,7 +149,7 @@
       "expand-row": "rozbalit řádek",
       "row-actions": "akce",
       "select-page-of-posts": "Vyberte stránku příspěvků",
-      "show-actions": "Show actions",
+      "show-actions": "Zobrazit akce",
       "warning-icon": "Ikona varování"
     },
     "clear": "Vymazat",
