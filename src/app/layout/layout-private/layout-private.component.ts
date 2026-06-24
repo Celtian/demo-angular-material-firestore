@@ -11,10 +11,10 @@ import { LocalizeRouterModule, LocalizeRouterService } from '@gilsdav/ngx-transl
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxFixedFooterDirective } from 'ngx-fixed-footer';
 import { Observable, from } from 'rxjs';
-import { ROUTE_DEFINITION } from 'src/app/shared/constants/route-definition.constant';
-import { BreadcrumbsPortalService } from 'src/app/shared/services/breadcrumbs-portal.service';
-import { LanguageService } from 'src/app/shared/services/language.service';
-import { VERSION_INFO } from 'src/app/version';
+import { ROUTE_DEFINITION } from '../../shared/constants/route-definition.constant';
+import { BreadcrumbsPortalService } from '../../shared/services/breadcrumbs-portal.service';
+import { LanguageService } from '../../shared/services/language.service';
+import { VERSION_INFO } from '../../version';
 
 @Component({
   selector: 'app-layout-private',

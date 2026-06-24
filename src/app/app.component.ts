@@ -1,5 +1,5 @@
 import { PortalModule } from '@angular/cdk/portal';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -11,6 +11,7 @@ import { SeoDirective } from './shared/directives/seo.directive';
   imports: [LocalizeRouterModule, PortalModule, RouterOutlet, TranslateModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [NgxAppVersionDirective, SeoDirective],
 })
 export class AppComponent {}

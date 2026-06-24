@@ -18,14 +18,14 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { LocalizeRouterModule, LocalizeRouterService } from '@gilsdav/ngx-translate-router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { switchMap } from 'rxjs';
-import { DataSource } from 'src/app/shared/classes/data-source';
-import { DEFAULT_POST } from 'src/app/shared/constants/post.constant';
-import { ROUTE_DEFINITION } from 'src/app/shared/constants/route-definition.constant';
-import { PostDeleteDirective } from 'src/app/shared/directives/post-delete.directive';
-import { PostDto } from 'src/app/shared/dto/post.dto';
-import { getParamId } from 'src/app/shared/rxjs/get-param-id';
-import { ApiService } from 'src/app/shared/services/api.service';
-import { BreadcrumbsPortalService } from 'src/app/shared/services/breadcrumbs-portal.service';
+import { DataSource } from '../../shared/classes/data-source';
+import { DEFAULT_POST } from '../../shared/constants/post.constant';
+import { ROUTE_DEFINITION } from '../../shared/constants/route-definition.constant';
+import { PostDeleteDirective } from '../../shared/directives/post-delete.directive';
+import { PostDto } from '../../shared/dto/post.dto';
+import { getParamId } from '../../shared/rxjs/get-param-id';
+import { ApiService } from '../../shared/services/api.service';
+import { BreadcrumbsPortalService } from '../../shared/services/breadcrumbs-portal.service';
 
 @Component({
   selector: 'app-post-detail',

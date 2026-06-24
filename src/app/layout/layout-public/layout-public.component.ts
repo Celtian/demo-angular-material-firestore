@@ -5,9 +5,9 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxFixedFooterDirective } from 'ngx-fixed-footer';
-import { ROUTE_DEFINITION } from 'src/app/shared/constants/route-definition.constant';
-import { LanguageService } from 'src/app/shared/services/language.service';
-import { VERSION_INFO } from 'src/app/version';
+import { ROUTE_DEFINITION } from '../../shared/constants/route-definition.constant';
+import { LanguageService } from '../../shared/services/language.service';
+import { VERSION_INFO } from '../../version';
 
 @Component({
   selector: 'app-layout-public',
