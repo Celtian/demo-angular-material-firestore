@@ -1,0 +1,1 @@
+import {q as q$1,c3 as C}from'./main-VWRFYFNP.js';var s=(()=>{class t{constructor(){this.activePortal=new q$1,this.portal$=this.activePortal.asObservable();}setPortal(r){this.activePortal.next(r);}static{this.\u0275fac=function(a){return new(a||t)};}static{this.\u0275prov=C({token:t,factory:t.\u0275fac,providedIn:"root"});}}return t})();export{s};
